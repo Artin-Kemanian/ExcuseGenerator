@@ -4,23 +4,27 @@ import "./style.css";
 
 window.onload = () => {
   document.querySelector("#btn").addEventListener("click", () => {
-    document.querySelector("#excusa").innerHTML = generateExcuse();
+    document.querySelector("#excusa").innerHTML = generarExcusa();
   });
   console.log("Hello Rigo from the console! ");
 };
 
-let generateExcuse = () => {
+let generarNumeroAleatorio = lista => {
+  let listaIndex = Math.floor(Math.random() * lista.length);
+  return listaIndex;
+};
+let generarExcusa = () => {
   let articulo = ["Mi", "Un/Una", "El/la"];
   let sustantivo = ["perro", "conductor", "pareja", "ladrón"];
   let accion = ["robó", "ensució", "mordió", "se llevó"];
   let posesion = ["mi tarea", "mi auto", "mis zapatos", "mi computadora"];
   let lugar = ["en mi casa", "en el parque", "en la acera de mi casa"];
 
-  let artIndex = Math.floor(Math.random() * articulo.length);
-  let sustIndex = Math.floor(Math.random() * sustantivo.length);
-  let accIndex = Math.floor(Math.random() * accion.length);
-  let posIndex = Math.floor(Math.random() * posesion.length);
-  let lugIndex = Math.floor(Math.random() * lugar.length);
+  let artIndex = generarNumeroAleatorio(articulo);
+  let sustIndex = generarNumeroAleatorio(sustantivo);
+  let accIndex = generarNumeroAleatorio(accion);
+  let posIndex = generarNumeroAleatorio(posesion);
+  let lugIndex = generarNumeroAleatorio(lugar);
 
   return (
     articulo[artIndex] +
